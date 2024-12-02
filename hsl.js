@@ -1,9 +1,9 @@
 let angle = 0;
-let saturation = 100;
-let lightness = 100;
+let saturation1 = 100;
+let lightness1 = 100;
 let draggingAngle = false;
-let draggingSaturation = false;
-let dragginglightness = false;
+let draggingsaturation1 = false;
+let dragginglightness1 = false;
 let ringWidth;
 let radius;
 let dx, dy;
@@ -22,17 +22,17 @@ function setup() {
   dx = width / 5;
   dy = height / 5;
   angle = random(0, 360);
-  saturation = random(0, 100);
-  lightness = random(0, 100);
+  saturation1 = random(0, 100);
+  lightness1 = random(0, 100);
   textSize(16);
   textAlign(CENTER);
 }
 
 function draw() {
-  background(angle, saturation, lightness);
+  background(angle, saturation1, lightness1);
   translate(width / 2, height / 2);
   noFill();
-  tint(angle, saturation, 80 - lightness / 2);
+  tint(angle, saturation1, 80 - lightness1 / 2);
   image(
     budgie,
     -radius / 2 - ringWidth / 4,
@@ -45,14 +45,14 @@ function draw() {
   drawBBar();
   drawSBar();
   angleSelector();
-  saturationSelector();
-  lightnessSelector();
+  saturation1Selector();
+  lightness1Selector();
   borderAndText();
 }
 
 function borderAndText() {
   noFill();
-  stroke((angle + 180) % 360, 100 - saturation, 100 - lightness);
+  stroke((angle + 180) % 360, 100 - saturation1, 100 - lightness1);
   rect(
     -width / 2 + dx / 4,
     -height / 2 + dy / 4,
@@ -65,7 +65,7 @@ function borderAndText() {
     width - dx / 2,
     height - dy / 2
   );
-  if (lightness >= 70) {
+  if (lightness1 >= 70) {
     b = 100;
   } else {
     b = 0;
@@ -76,14 +76,14 @@ function borderAndText() {
     "hsl(" +
       round(angle) +
       "deg, " +
-      round(saturation) +
+      round(saturation1) +
       "%, " +
-      round(lightness) +
+      round(lightness1) +
       "%)",
     0,
     height / 2 - dy / 2
   );
-  rgb1 = hslToRgb(angle, saturation, lightness);
+  rgb1 = hslToRgb(angle, saturation1, lightness1);
   text(
     "rgb(" + round(rgb1.r) + ", " + round(rgb1.g) + ", " + round(rgb1.b) + ")",
     0,
@@ -103,18 +103,18 @@ function mousePressed() {
   }
 
   let satX = -width / 2 + dx;
-  let satY = map(saturation, 0, 100, height / 2 - dy, -height / 2 + dy);
+  let satY = map(saturation1, 0, 100, height / 2 - dy, -height / 2 + dy);
   let satD = dist(mouseX - width / 2, mouseY - height / 2, satX, satY);
   if (satD < 20) {
-    draggingSaturation = true;
+    draggingsaturation1 = true;
     return;
   }
 
   let brightX = width / 2 - dx;
-  let brightY = map(lightness, 0, 100, height / 2 - dy, -height / 2 + dy);
+  let brightY = map(lightness1, 0, 100, height / 2 - dy, -height / 2 + dy);
   let brightD = dist(mouseX - width / 2, mouseY - height / 2, brightX, brightY);
   if (brightD < 20) {
-    dragginglightness = true;
+    dragginglightness1 = true;
   }
 }
 
@@ -134,18 +134,18 @@ function touchStarted() {
   }
 
   let satX = -width / 2 + dx;
-  let satY = map(saturation, 0, 100, height / 2 - dy, -height / 2 + dy);
+  let satY = map(saturation1, 0, 100, height / 2 - dy, -height / 2 + dy);
   let satD = dist(touchX, touchY, satX, satY);
   if (satD < 20) {
-    draggingSaturation = true;
+    draggingsaturation1 = true;
     return false;
   }
 
   let brightX = width / 2 - dx;
-  let brightY = map(lightness, 0, 100, height / 2 - dy, -height / 2 + dy);
+  let brightY = map(lightness1, 0, 100, height / 2 - dy, -height / 2 + dy);
   let brightD = dist(touchX, touchY, brightX, brightY);
   if (brightD < 20) {
-    dragginglightness = true;
+    dragginglightness1 = true;
     return false;
   }
   return false;
@@ -156,15 +156,15 @@ function mouseDragged() {
     angle = atan2(mouseY - height / 2, mouseX - width / 2);
     if (angle < 0) angle += 360;
   }
-  if (draggingSaturation) {
+  if (draggingsaturation1) {
     let relativeY = mouseY - height / 2;
-    saturation = map(relativeY, height / 2 - dy, -height / 2 + dy, 0, 100);
-    saturation = constrain(saturation, 0, 100);
+    saturation1 = map(relativeY, height / 2 - dy, -height / 2 + dy, 0, 100);
+    saturation1 = constrain(saturation1, 0, 100);
   }
-  if (dragginglightness) {
+  if (dragginglightness1) {
     let relativeY = mouseY - height / 2;
-    lightness = map(relativeY, height / 2 - dy, -height / 2 + dy, 0, 100);
-    lightness = constrain(lightness, 0, 100);
+    lightness1 = map(relativeY, height / 2 - dy, -height / 2 + dy, 0, 100);
+    lightness1 = constrain(lightness1, 0, 100);
   }
 }
 
@@ -176,23 +176,23 @@ function touchMoved() {
     angle = atan2(touches[0].y - height / 2, touches[0].x - width / 2);
     if (angle < 0) angle += 360;
   }
-  if (draggingSaturation) {
+  if (draggingsaturation1) {
     let relativeY = touches[0].y - height / 2;
-    saturation = map(relativeY, height / 2 - dy, -height / 2 + dy, 0, 100);
-    saturation = constrain(saturation, 0, 100);
+    saturation1 = map(relativeY, height / 2 - dy, -height / 2 + dy, 0, 100);
+    saturation1 = constrain(saturation1, 0, 100);
   }
-  if (dragginglightness) {
+  if (dragginglightness1) {
     let relativeY = touches[0].y - height / 2;
-    lightness = map(relativeY, height / 2 - dy, -height / 2 + dy, 0, 100);
-    lightness = constrain(lightness, 0, 100);
+    lightness1 = map(relativeY, height / 2 - dy, -height / 2 + dy, 0, 100);
+    lightness1 = constrain(lightness1, 0, 100);
   }
   return false;
 }
 
 function mouseReleased() {
   draggingAngle = false;
-  draggingSaturation = false;
-  dragginglightness = false;
+  draggingsaturation1 = false;
+  dragginglightness1 = false;
 }
 
 function touchEnded() {
@@ -200,8 +200,8 @@ function touchEnded() {
     return true;
   }
   draggingAngle = false;
-  draggingSaturation = false;
-  dragginglightness = false;
+  draggingsaturation1 = false;
+  dragginglightness1 = false;
   return false;
 }
 
@@ -230,7 +230,7 @@ function drawBBar() {
   let y = dy;
   for (let i = -height / 2 + y; i < height / 2 - y; i += 3) {
     let b = map(i, -height / 2 + y, height / 2 - y, 100, 0);
-    fill(angle, saturation, b);
+    fill(angle, saturation1, b);
     noStroke();
     circle(x, i, 10);
   }
@@ -242,7 +242,7 @@ function drawSBar() {
   let y = dy;
   for (let i = -height / 2 + y; i < height / 2 - y; i += 3) {
     let s = map(i, -height / 2 + y, height / 2 - y, 100, 0);
-    fill(angle, s, lightness);
+    fill(angle, s, lightness1);
     noStroke();
     circle(x, i, 10);
   }
@@ -256,24 +256,24 @@ function angleSelector() {
   circle(selX, selY, 20);
 }
 
-function saturationSelector() {
+function saturation1Selector() {
   let selX = -width / 2 + dx;
-  let selY = map(saturation, 0, 100, height / 2 - dy, -height / 2 + dy);
+  let selY = map(saturation1, 0, 100, height / 2 - dy, -height / 2 + dy);
 
   push();
-  stroke(angle, 100 - saturation, 50);
-  fill(angle, saturation, 50);
+  stroke(angle, 100 - saturation1, 50);
+  fill(angle, saturation1, 50);
   circle(selX, selY, 20);
   pop();
 }
 
-function lightnessSelector() {
+function lightness1Selector() {
   let selX = width / 2 - dx;
-  let selY = map(lightness, 0, 100, height / 2 - dy, -height / 2 + dy);
+  let selY = map(lightness1, 0, 100, height / 2 - dy, -height / 2 + dy);
 
   push();
-  stroke(angle, 100, 100 - lightness);
-  fill(angle, 100, lightness);
+  stroke(angle, 100, 100 - lightness1);
+  fill(angle, 100, lightness1);
   circle(selX, selY, 20);
   pop();
 }
@@ -284,9 +284,9 @@ function keyPressed() {
       "hsl(" +
       round(angle) +
       "deg, " +
-      round(saturation) +
+      round(saturation1) +
       "%, " +
-      round(lightness) +
+      round(lightness1) +
       "%)";
     navigator.clipboard
       .writeText(hslText)

@@ -11,8 +11,51 @@ function setup() {
 let budgie;
 function preload() {
   budgie = loadImage("budgieShadow.svg");
+  clockB = loadImage("minutes.png");
 }
 function draw() {
+  day1();
+  day2();
+  strokeWeight(2);
+  stroke(0, 0, 80);
+  noFill();
+  arc(width / 10 + stone, padTop + stone, 2 * stone, stone, -90, 0);
+  line(
+    width / 10 + stone * 2,
+    padTop + stone,
+    width / 10 + stone * 2 - 10,
+    padTop + stone - 10
+  );
+  line(
+    width / 10 + stone * 2,
+    padTop + stone,
+    width / 10 + stone * 2 + 10,
+    padTop + stone - 10
+  );
+}
+
+function mousePressed() {
+  //day1
+  if (
+    mouseX > width / 10 &&
+    mouseX < width / 10 + stone &&
+    mouseY > padTop &&
+    mouseY < padTop + stone
+  ) {
+    window.location.href = "/day1.html";
+  }
+  //day1
+  if (
+    mouseX > width / 10 + stone * 1.5 &&
+    mouseX < width / 10 + stone * 2.5 &&
+    mouseY > padTop + stone &&
+    mouseY < padTop + stone * 2
+  ) {
+    window.location.href = "/day2.html";
+  }
+}
+
+function day1() {
   //day1
   push();
   if (
@@ -43,16 +86,35 @@ function draw() {
   pop();
 }
 
-function mousePressed() {
-  //day1
+function day2() {
+  push();
   if (
-    mouseX > width / 10 &&
-    mouseX < width / 10 + stone &&
-    mouseY > padTop &&
-    mouseY < padTop + stone
+    mouseX > width / 10 + stone * 1.5 &&
+    mouseX < width / 10 + stone * 2.5 &&
+    mouseY > padTop + stone &&
+    mouseY < padTop + stone * 2
   ) {
-    window.location.href = "/day1.html";
+    fill(136, 27, 79);
+  } else {
+    fill(120);
   }
-}
 
-function keyPressed() {}
+  strokeWeight(2);
+  stroke(0, 0, 80);
+  translate(width / 2 - width / 10 + stone / 2, padTop + stone);
+  circle(0, stone / 2, stone);
+
+  push();
+  translate(0, stone / 2);
+  rotate((second() * 360) / 60 - 135.5);
+
+  image(clockB, 0, 0, stone / 2.5, stone / 2.5);
+  pop();
+  push();
+  translate(0, stone / 2);
+  rotate((minute() * 360) / 60 - 135.5);
+
+  image(clockB, 0, 0, stone / 2.5, stone / 2.5);
+  pop();
+  pop();
+}
