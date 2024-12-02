@@ -19,17 +19,18 @@ function draw() {
   strokeWeight(2);
   stroke(0, 0, 80);
   noFill();
-  arc(width / 10 + stone, padTop + stone, 2 * stone, stone, -90, 0);
+  tmp1 = (width / 2 - width / 10 + stone / 2 - width / 10 - stone) * 2;
+  arc(width / 10 + stone, padTop + stone, tmp1, stone, -90, 0);
   line(
-    width / 10 + stone * 2,
+    width / 2 - width / 10 + stone / 2,
     padTop + stone,
-    width / 10 + stone * 2 - 10,
+    width / 2 - width / 10 + stone / 2 - 10,
     padTop + stone - 10
   );
   line(
-    width / 10 + stone * 2,
+    width / 2 - width / 10 + stone / 2,
     padTop + stone,
-    width / 10 + stone * 2 + 10,
+    width / 2 - width / 10 + stone / 2 + 10,
     padTop + stone - 10
   );
 }
