@@ -45,6 +45,7 @@ body {
   background: rgba(0, 0, 0, 0.2);
   padding: 10px 0;
   text-align: center;
+  margin-top: 20px;
 }
 
 .footer p {
@@ -63,4 +64,11 @@ body {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+#sketch-container {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }

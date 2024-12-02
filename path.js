@@ -4,7 +4,7 @@ let padTop = 100;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(240, 255, 255);
-  stone = width / 5;
+  stone = 120;
   colorMode(HSL);
   angleMode(DEGREES);
 }

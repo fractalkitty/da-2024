@@ -13,7 +13,7 @@ function preload() {
   budgie = loadImage("budgieShadow.svg");
 }
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight - 150);
+  let canvas = createCanvas(min(windowWidth, 600), windowHeight - 150);
   canvas.parent("sketch-container");
   colorMode(HSL);
   angleMode(DEGREES);
@@ -201,7 +201,7 @@ function windowResized() {
   ringWidth = min(width, height) / 8;
   dx = width / 5;
   dy = height / 5;
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(min(windowWidth, 600), windowHeight - 150);
 }
 
 function drawRing() {
