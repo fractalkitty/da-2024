@@ -2,7 +2,8 @@ let stone;
 let padTop = 100;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let canvas1 = createCanvas(windowWidth, windowHeight);
+  canvas1.parent("sketch-container");
   background(240, 255, 255);
   stone = 120;
   colorMode(HSL);
@@ -55,7 +56,9 @@ function mousePressed() {
     window.location.href = "/day2.html";
   }
 }
-
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
 function day1() {
   //day1
   push();
