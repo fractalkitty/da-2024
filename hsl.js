@@ -197,7 +197,8 @@ function mouseReleased() {
 
 function touchEnded() {
   if (mouseY < 0 || mouseY > height || mouseX < 0 || mouseX > width) {
-  return true;
+    return true;
+  }
   draggingAngle = false;
   draggingSaturation = false;
   dragginglightness = false;
