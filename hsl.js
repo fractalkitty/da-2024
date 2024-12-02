@@ -119,6 +119,9 @@ function mousePressed() {
 }
 
 function touchStarted() {
+  if (mouseY < 0 || mouseY > height || mouseX < 0 || mouseX > width) {
+    return true; // Let the touch event pass through to other elements
+  }
   let touchX = touches[0].x - width / 2;
   let touchY = touches[0].y - height / 2;
 
@@ -166,6 +169,9 @@ function mouseDragged() {
 }
 
 function touchMoved() {
+  if (mouseY < 0 || mouseY > height || mouseX < 0 || mouseX > width) {
+    return true;
+  }
   if (draggingAngle) {
     angle = atan2(touches[0].y - height / 2, touches[0].x - width / 2);
     if (angle < 0) angle += 360;
@@ -190,6 +196,8 @@ function mouseReleased() {
 }
 
 function touchEnded() {
+  if (mouseY < 0 || mouseY > height || mouseX < 0 || mouseX > width) {
+  return true;
   draggingAngle = false;
   draggingSaturation = false;
   dragginglightness = false;
