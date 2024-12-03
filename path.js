@@ -2,9 +2,8 @@ let stone;
 let padTop = 100;
 
 function setup() {
-  let canvas1 = createCanvas(windowWidth, windowHeight);
+  let canvas1 = createCanvas(400, windowHeight);
   canvas1.parent("sketch-container");
-  background(240, 255, 255);
   stone = 120;
   colorMode(HSL);
   angleMode(DEGREES);
@@ -13,27 +12,14 @@ let budgie;
 function preload() {
   budgie = loadImage("budgieShadow.svg");
   clockB = loadImage("minutes.png");
+  pbudge = loadImage("pixelBudgie.png");
 }
 function draw() {
+  // background(200, 205, 205);
   day1();
   day2();
-  strokeWeight(2);
-  stroke(0, 0, 80);
-  noFill();
-  tmp1 = (width / 2 - width / 10 + stone / 2 - width / 10 - stone) * 2;
-  arc(width / 10 + stone, padTop + stone, tmp1, stone, -90, 0);
-  line(
-    width / 2 - width / 10 + stone / 2,
-    padTop + stone,
-    width / 2 - width / 10 + stone / 2 - 10,
-    padTop + stone - 10
-  );
-  line(
-    width / 2 - width / 10 + stone / 2,
-    padTop + stone,
-    width / 2 - width / 10 + stone / 2 + 10,
-    padTop + stone - 10
-  );
+  day3();
+  arc1();
 }
 
 function mousePressed() {
@@ -46,18 +32,27 @@ function mousePressed() {
   ) {
     window.location.href = "/day1.html";
   }
-  //day1
+  //day2
   if (
-    mouseX > width / 10 + stone * 1.5 &&
-    mouseX < width / 10 + stone * 2.5 &&
+    mouseX > width / 10 + stone * 1 &&
+    mouseX < width / 10 + stone * 2 &&
     mouseY > padTop + stone &&
     mouseY < padTop + stone * 2
   ) {
     window.location.href = "/day2.html";
   }
+  //day3
+  if (
+    mouseX > width / 10 &&
+    mouseX < width / 10 + stone &&
+    mouseY > padTop + 2 * stone &&
+    mouseY < padTop + 3 * stone
+  ) {
+    window.location.href = "/day3.html";
+  }
 }
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(400, windowHeight);
 }
 function day1() {
   //day1
@@ -93,8 +88,8 @@ function day1() {
 function day2() {
   push();
   if (
-    mouseX > width / 10 + stone * 1.5 &&
-    mouseX < width / 10 + stone * 2.5 &&
+    mouseX > width / 10 + stone * 1 &&
+    mouseX < width / 10 + stone * 2 &&
     mouseY > padTop + stone &&
     mouseY < padTop + stone * 2
   ) {
@@ -121,4 +116,61 @@ function day2() {
   image(clockB, 0, 0, stone / 2.5, stone / 2.5);
   pop();
   pop();
+}
+
+function day3() {
+  //day1
+  push();
+  if (
+    mouseX > width / 10 &&
+    mouseX < width / 10 + stone &&
+    mouseY > padTop + 2 * stone &&
+    mouseY < padTop + 3 * stone
+  ) {
+    fill(307, 39, 85);
+  } else {
+    fill(100);
+  }
+  translate(width / 10, 100 + 2 * stone);
+  strokeWeight(2);
+  stroke(0, 0, 80);
+  rect(0, 0, stone, stone, 20, 20, 20, 20);
+  image(pbudge, 0, stone / 12, stone, stone);
+  pop();
+}
+
+function arc1() {
+  strokeWeight(2);
+  stroke(0, 0, 60);
+  noFill();
+  tmp1 = (width / 2 - width / 10 + stone / 2 - width / 10 - stone) * 2;
+  arc(width / 10 + stone, padTop + stone, tmp1, stone, -90, 0);
+  line(
+    width / 2 - width / 10 + stone / 2,
+    padTop + stone,
+    width / 2 - width / 10 + stone / 2 - 10,
+    padTop + stone - 10
+  );
+  line(
+    width / 2 - width / 10 + stone / 2,
+    padTop + stone,
+    width / 2 - width / 10 + stone / 2 + 10,
+    padTop + stone - 10
+  );
+
+  noFill();
+
+  arc(width / 10 + stone, padTop + stone * 2, tmp1, stone, 0, 90);
+  line(
+    width / 10 + stone,
+    padTop + stone * 2.5,
+    width / 10 + stone + 10,
+    padTop + stone * 2.5 - 10
+  );
+  line(
+    width / 10 + stone,
+    padTop + stone * 2.5,
+    width / 10 + stone + 10,
+    padTop + stone * 2.5 + 10
+  );
 }
