@@ -1,8 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-
-  background: rgb(218, 230, 252);
+  margin: auto;
+  background: rgb(213, 221, 255);
 }
 .nav {
   display: flex;
@@ -67,9 +67,9 @@ body {
 
 .b-wrapper {
   text-align: center; /* Centers the inline-block elements */
-  max-width: 80%;
-  margin: 0px;
-  padding: 0px; /* Add padding to prevent cutoff */
+  max-width: 70%;
+  margin: auto;
+  /* padding: 0px; /* Add padding to prevent cutoff */
   padding-bottom: 100px;
 }
 @keyframes wave {
@@ -87,6 +87,7 @@ body {
   margin: 50px 30px;
   height: 10px;
   width: 10px;
+  translate: -50px;
   transform: scale(0.5);
   box-shadow: 90px 10px 0 0 rgba(255, 235, 59, 1),
     100px 10px 0 0 rgba(255, 235, 59, 1), 110px 10px 0 0 rgba(255, 235, 59, 1),
