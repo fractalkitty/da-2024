@@ -31,7 +31,7 @@ function draw() {
   pop();
   push();
 
-  rotate((hour() * 360) / 12 - offset);
+  rotate((hour() * 360) / 12 - offset + (minute() * 360) / 60 / 12);
   image(h, 0, 0, r / 2.5, r / 2.5);
   pop();
   noFill();
