@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   justify-content: center;
   align-items: center;
   background: #04001c;
@@ -102,4 +102,33 @@ body {
   .container4 {
     width: 95%;
   }
+}
+
+.code-container {
+  margin: 2rem auto;
+  max-width: 90%;
+  overflow-x: auto;
+  background: grey;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+pre {
+  margin: 0;
+}
+
+code {
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+//get rid of white background
+code[class*="language-elm"] .token.operator,
+pre[class*="language-elm"] .token.operator {
+  background: none !important;
+  color: inherit !important;
+}
+
+.token.operator {
+  background: none !important;
 }
