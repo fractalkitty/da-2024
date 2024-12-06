@@ -7,24 +7,31 @@
 
     <link rel="icon" type="image/png" href="/assets/homeicon.png" />
 
-    <title>Day 1 - Color Picker</title>
+    <title>Day 3 - 1000 CSS Budgies</title>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style4.css" />
   </head>
   <body>
     <nav class="nav">
       <a href="/">
         <img class="homeicon" src="/assets/homeicon.png" alt="birdhouse" />
       </a>
-      <h1>Budgies - Day 1</h1>
+      <h1>Day 5 - #WCCChallenge - Void</h1>
       <a class="logicon" href="/log.html">
         <img src="/assets/logicon.png" alt="tree log" />
       </a>
     </nav>
     <div id="sketch-container"></div>
-    <script src="js/hsl.js"></script>
+    <div class="container4">
+      <img src="assets/budgie-void.png" class="budgie-image" alt="Budgie" />
+      <div id="elm-app"></div>
+    </div>
+    <script src="elm.js"></script>
+    <script>
+      var app = Elm.Main.init({
+        node: document.getElementById("elm-app"),
+      });
+    </script>
   </body>
   <footer class="footer">
     <p>
@@ -35,15 +42,6 @@
           src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
         />
       </a>
-      <!-- <span>
-        This work is licensed under a
-        <a
-          rel="license"
-          href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-          >Creative Commons Attribution-NonCommercial-ShareAlike 4.0
-          International License</a
-        >
-      </span> -->
     </p>
   </footer>
 </html>

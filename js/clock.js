@@ -1,8 +1,8 @@
 let m, h, canvas, str1;
 let offset = 135.5;
 function preload() {
-  m = loadImage("minutes.png");
-  h = loadImage("hours.png");
+  m = loadImage("assets/minutes.png");
+  h = loadImage("assets/hours.png");
 }
 
 function setup() {

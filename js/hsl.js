@@ -10,7 +10,7 @@ let dx, dy;
 let touchR = 15;
 let budgie;
 function preload() {
-  budgie = loadImage("budgieShadow.svg");
+  budgie = loadImage("assets/budgieShadow.svg");
 }
 function setup() {
   let canvas = createCanvas(min(windowWidth, 600), windowHeight - 150);

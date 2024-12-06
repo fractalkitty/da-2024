@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="A december adventure site fro 2024" />
-    <link rel="icon" type="image/png" href="/homeicon.png" />
+    <link rel="icon" type="image/png" href="/assets/homeicon.png" />
     <title>Activity log</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <link rel="stylesheet" href="style.css" />
@@ -12,11 +12,11 @@
   <body>
     <nav class="nav">
       <a href="/">
-        <img class="homeicon" src="/homeicon.png" alt="birdhouse" />
+        <img class="homeicon" src="/assets/homeicon.png" alt="birdhouse" />
       </a>
       <h1>Budgies - Log</h1>
       <a class="logicon" href="/log.html">
-        <img src="/logicon.png" alt="tree log" />
+        <img src="/assets/logicon.png" alt="tree log" />
       </a>
     </nav>
     <div class="about">
@@ -30,10 +30,74 @@
       >
       for 2024. Last year I played on
       <a href="https://sluggly.art/" target="_blank">sluggly.art.</a>
-      This year I am just piddling around with css, p5js, react, and haskell.
+      This year I am just piddling around with css, p5js, react, elm, and
+      haskell.
+      <a href="https://github.com/fractalkitty/da-2024" target="_blank"
+        >My git for this adventure is available here.</a
+      >
     </div>
     <div id="log-list">
       <ul>
+        <li>
+          Day 5
+          <ul>
+            <li>Played with syntax highlighting import in Elm for a friend.</li>
+            <li>Made an Elm sketch for the #WCCChallenge prompt - Void</li>
+          </ul>
+        </li>
+
+        <li>
+          Day 4
+          <img
+            class="gif1"
+            src="assets/flapping.gif"
+            alt="pixel budgie flapping"
+          />
+          <ul>
+            <li>
+              Made a budgie cursor for home. If you hold any keydown, it turns
+              into a paintbrush.
+            </li>
+
+            <li>Did half of Module 2 of Josh Comeau's CSS.</li>
+            <li>
+              Worked on chapter 3 of Learn you a good Haskell before it started
+              using BMI
+              <ul>
+                <li><strong>I am done with this book.</strong></li>
+              </ul>
+            </li>
+            <li>
+              Did 7
+              <a
+                href="https://exercism.org/tracks/haskell/exercises"
+                target="_blank"
+                >Exercism</a
+              >
+              Haskell exercises
+            </li>
+          </ul>
+        </li>
+        <li>
+          Day 3
+          <ul>
+            <li>Did Module 1 of Josh Comeau's CSS.</li>
+            <li>
+              Made a pixel art CSS budgie and then made a 1000 of them dance.
+            </li>
+          </ul>
+        </li>
+        <li>
+          Day 2
+          <ul>
+            <li>Did chapter 2 in Learn you a haskell for Great Good.</li>
+            <li>
+              Played with time functions in Haskell. (I failed to get
+              blank-canvas to work today to make clock art.)
+            </li>
+            <li>Made budgie clock instead of using canvas + haskell</li>
+          </ul>
+        </li>
         <li>
           Day 1
           <ul>
@@ -53,26 +117,6 @@
             <li>Started homepage that will evolve for this site.</li>
           </ul>
         </li>
-        <li>
-          Day 2
-          <ul>
-            <li>Did chapter 2 in Learn you a haskell for Great Good.</li>
-            <li>
-              Played with time functions in Haskell. (I failed to get
-              blank-canvas to work today to make clock art.)
-            </li>
-            <li>Made budgie clock instead of using canvas + haskell</li>
-          </ul>
-        </li>
-        <li>
-          Day 3
-          <ul>
-            <li>Did Module 1 of Josh Comeau's CSS.</li>
-            <li>
-              Made a pixel art CSS budgie and then made a 1000 of them dance.
-            </li>
-          </ul>
-        </li>
       </ul>
     </div>
   </body>
@@ -85,15 +129,6 @@
           src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
         />
       </a>
-      <!-- <span>
-        This work is licensed under a
-        <a
-          rel="license"
-          href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-          >Creative Commons Attribution-NonCommercial-ShareAlike 4.0
-          International License</a
-        >
-      </span> -->
     </p>
   </footer>
 </html>
