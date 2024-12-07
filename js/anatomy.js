@@ -86,6 +86,9 @@ function mousePressed() {
   return false;
 }
 function touchStarted() {
+  if (mouseY < 0 || mouseY > height || mouseX < 0 || mouseX > width) {
+    return true; // Let the touch event pass through to other elements
+  }
   setup();
   draw();
   // Prevent default touch behavior
