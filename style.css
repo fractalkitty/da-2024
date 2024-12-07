@@ -76,3 +76,9 @@ body {
 .gif1 {
   background: #030548;
 }
+
+.subtitle {
+  display: block;
+  margin: auto;
+  text-align: center;
+}

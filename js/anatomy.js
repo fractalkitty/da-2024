@@ -22,7 +22,7 @@ function setup() {
 
 function draw() {
   translate(w / 2, w / 2);
-  background(235, 245, 255);
+  background(245, 245, 255);
   image(budgie, -width / 2, -width / 2, width, width);
   stroke(150);
   //right
@@ -56,7 +56,7 @@ function draw() {
   text(random(toes), w / 4, w / 10);
   text(random(brow), w / 4, -w / 2.8);
   text(random(hand), w / 4, w / 6);
-  text("Click to change", -w / 2 + 10, w / 2 - 10);
+  // text("Click to change", -w / 2 + 10, w / 2 - 10);
 
   textAlign(RIGHT);
   text(random(noggin), -w / 4, -w / 3);
