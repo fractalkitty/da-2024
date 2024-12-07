@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   justify-content: center;
   align-items: center;
   background: rgb(218, 230, 252);
@@ -39,7 +39,7 @@ body {
 }
 
 .footer {
-  position: fixed;
+  position: flex;
   bottom: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.2);
