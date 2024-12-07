@@ -10,13 +10,14 @@ function setup() {
   noCursor();
   // frameRate(10);
 }
-let budgie, clockB, pbudge, budgieCursor, d4;
+let budgie, clockB, pbudge, budgieCursor, d4, card6;
 function preload() {
   budgie = loadImage("assets/budgieShadow.svg");
   clockB = loadImage("assets/minutes.png");
   pbudge = loadImage("assets/pixelBudgie.png");
   budgieCursor = loadImage("assets/flapping.gif");
   d4 = loadImage("assets/day4card.jpg");
+  card6 = loadImage("assets/card6.png");
 }
 function draw() {
   if (!keyIsPressed) {
@@ -27,7 +28,10 @@ function draw() {
   day2();
   day3();
   day5();
+  day6();
   arc1();
+  fill(0);
+  circle(mouseX, mouseY, 32);
   image(budgieCursor, mouseX - 16, mouseY - 16);
 }
 
@@ -59,7 +63,7 @@ function mousePressed() {
   ) {
     window.location.href = "./day3.html";
   }
-  //day 4
+  //day 5
   if (
     mouseX > width - width / 2 - width / 40 - 16 &&
     mouseX < width - width / 40 + stone - width / 2 + 16 &&
@@ -67,6 +71,15 @@ function mousePressed() {
     mouseY < padTop + 4 * stone + 16
   ) {
     window.location.href = "./day5.html";
+  }
+  //day 6
+  if (
+    mouseX > width / 20 - 16 &&
+    mouseX < width / 20 + stone + 16 &&
+    mouseY > padTop + 3.5 * stone - 16 &&
+    mouseY < padTop + 4.5 * stone + 16
+  ) {
+    window.location.href = "./day6.html";
   }
 }
 function windowResized() {
@@ -184,6 +197,33 @@ function day5() {
   pop();
 }
 
+function day6() {
+  //day1
+  push();
+  if (
+    mouseX > width / 20 - 16 &&
+    mouseX < width / 20 + stone + 16 &&
+    mouseY > padTop + 3.5 * stone - 16 &&
+    mouseY < padTop + 4.5 * stone + 16
+  ) {
+    fill(125, 45, 75);
+  } else {
+    fill(255);
+  }
+  translate(width / 20, padTop + 3.5 * stone);
+  strokeWeight(2);
+  stroke(0, 0, 80);
+  rect(0, 0, stone, stone, 20, 20, 20, 20);
+  image(
+    card6,
+    (stone - stone / 1.2) / 2,
+    (stone - stone / 1.2) / 2,
+    stone / 1.2,
+    stone / 1.2
+  );
+  pop();
+}
+
 function arc1() {
   strokeWeight(2);
   stroke(0, 0, 60);
@@ -230,5 +270,19 @@ function arc1() {
     padTop + stone * 3.5,
     width / 2 - width / 40 - 10,
     padTop + stone * 3.5 + 10
+  );
+
+  arc(width / 2 - width / 40, padTop + stone * 4, width / 4, stone / 8, 0, 180);
+  line(
+    width / 20 + stone,
+    padTop + stone * 4,
+    width / 20 + stone + 10,
+    padTop + stone * 4 - 10
+  );
+  line(
+    width / 20 + stone,
+    padTop + stone * 4,
+    width / 20 + stone + 10,
+    padTop + stone * 4 + 10
   );
 }
