@@ -7,6 +7,9 @@ function preload() {
 function setup() {
   canvas = createCanvas((w = min(max(windowWidth, 360), 600)), w);
   canvas.parent("sketch-container");
+  describe(
+    "a budgie anatomy drawing but with randomized cute nouns for each part"
+  );
   textSize(16);
   textAlign(LEFT);
   angleMode(DEGREES);

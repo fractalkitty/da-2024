@@ -8,6 +8,7 @@ function setup() {
   colorMode(HSL);
   angleMode(DEGREES);
   noCursor();
+  describe("a p5js path to click on different sketches");
   // frameRate(10);
 }
 let budgie, clockB, pbudge, budgieCursor, d4, card6;

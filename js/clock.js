@@ -8,6 +8,7 @@ function preload() {
 function setup() {
   canvas = createCanvas((w = min(windowWidth, 600)), w);
   canvas.parent("sketch-container");
+  describe("a clock with budgies for hour and minute hands");
 
   radius = min(width, height) / 5;
   ringWidth = min(width, height) / 8;
