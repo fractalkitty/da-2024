@@ -12,7 +12,11 @@ function setup() {
   angleMode(DEGREES);
   noLoop();
   if (w < 400) {
-    textSize(13);
+    textSize(10);
+  } else if (w < 500 && w >= 400) {
+    textSize(12);
+  } else {
+    textSize(14);
   }
 }
 
@@ -39,7 +43,6 @@ function draw() {
   line(0, -w / 15, -w / 4, -w / 15);
   line(-w / 10, w / 15, -w / 4, w / 15);
   line(-w / 3, w / 3, -w / 4, w / 7);
-  //eyes
 
   noStroke();
   fill(0);
@@ -65,9 +68,11 @@ function draw() {
 function windowResized() {
   w = min(max(windowWidth, 360), 600);
   if (w < 400) {
-    textSize(13);
+    textSize(10);
+  } else if (w < 500 && w >= 400) {
+    textSize(12);
   } else {
-    textSize(16);
+    textSize(14);
   }
   resizeCanvas(w, w);
 }
@@ -106,6 +111,8 @@ snoot = [
 
 beak = [
   "bell-booper",
+  "toe-pincher",
+  "feather-zipper",
   "finger-nipper",
   "branch scuplter",
   "seed-chomper",
@@ -398,6 +405,7 @@ tail = [
 peepers = [
   "snack-seekers",
   "mischief-marbles",
+  "beads of intimidation",
   "treat-trackers",
   "sparkle-dots",
   "trouble-spotters",
