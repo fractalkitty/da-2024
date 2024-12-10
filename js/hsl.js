@@ -15,6 +15,7 @@ function preload() {
 function setup() {
   let canvas = createCanvas(min(windowWidth, 600), windowHeight - 150);
   canvas.parent("sketch-container");
+  describe("a color finder in HSL with a budgie silohuett in the middle");
   colorMode(HSL);
   angleMode(DEGREES);
   radius = min(width, height) / 5;

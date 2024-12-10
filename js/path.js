@@ -2,7 +2,7 @@ let stone;
 let padTop = 100;
 
 function setup() {
-  let canvas1 = createCanvas(400, windowHeight);
+  let canvas1 = createCanvas(400, 800);
   canvas1.parent("sketch-container");
   stone = 120;
   colorMode(HSL);
@@ -19,6 +19,7 @@ function preload() {
   budgieCursor = loadImage("assets/flapping.gif");
   d4 = loadImage("assets/day4card.jpg");
   card6 = loadImage("assets/card6.png");
+  d9 = loadImage("assets/vibebudgie.png");
 }
 function draw() {
   if (!keyIsPressed) {
@@ -30,6 +31,7 @@ function draw() {
   day3();
   day5();
   day6();
+  day9();
   arc1();
   fill(0);
   circle(mouseX, mouseY, 32);
@@ -81,6 +83,15 @@ function mousePressed() {
     mouseY < padTop + 4.5 * stone + 16
   ) {
     window.location.href = "./day6.html";
+  }
+  //day 9
+  if (
+    mouseX > width - stone * 1.5 - 16 &&
+    mouseX < width - stone * 1.5 + stone + 16 &&
+    mouseY > padTop + 4.5 * stone - 16 &&
+    mouseY < padTop + 5.5 * stone + 16
+  ) {
+    window.location.href = "./day9.html";
   }
 }
 function windowResized() {
@@ -225,6 +236,33 @@ function day6() {
   pop();
 }
 
+function day9() {
+  //day1
+  push();
+  if (
+    mouseX > width - stone * 1.5 - 16 &&
+    mouseX < width - stone * 1.5 + stone + 16 &&
+    mouseY > padTop + 4.5 * stone - 16 &&
+    mouseY < padTop + 5.5 * stone + 16
+  ) {
+    fill(298, 100, 50);
+  } else {
+    fill(0);
+  }
+  translate(width - stone * 1.5, padTop + 4.5 * stone);
+  strokeWeight(2);
+  stroke(0, 0, 80);
+  rect(0, 0, stone, stone, 20, 20, 20, 20);
+  image(
+    d9,
+    (stone - stone / 1.2) / 2,
+    (stone - stone / 1.2) / 2,
+    stone / 1.2,
+    stone / 1.2
+  );
+  pop();
+}
+
 function arc1() {
   strokeWeight(2);
   stroke(0, 0, 60);
@@ -285,5 +323,18 @@ function arc1() {
     padTop + stone * 4,
     width / 20 + stone + 10,
     padTop + stone * 4 + 10
+  );
+  arc(width - 1.5 * stone, padTop + stone * 4.5, stone * 2, stone, 90, 180);
+  line(
+    width - 1.5 * stone,
+    padTop + stone * 5,
+    width - 1.5 * stone - 10,
+    padTop + stone * 5 - 10
+  );
+  line(
+    width - 1.5 * stone,
+    padTop + stone * 5,
+    width - 1.5 * stone - 10,
+    padTop + stone * 5 + 10
   );
 }
