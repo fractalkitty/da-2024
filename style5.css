@@ -1,15 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-  /* overflow: hidden; */
   justify-content: center;
   align-items: center;
-  background: #04001c;
+  background: black;
 }
 .nav {
   display: flex;
   justify-content: space-between;
-  background: rgba(141, 141, 141);
+  background: gray;
   padding: 0px 0px;
   margin: 0px 0px 0px 0px;
 }
@@ -32,9 +31,14 @@ body {
   max-width: 600px;
   padding: 10px;
 }
+#log-list {
+  margin: auto;
+  max-width: 600px;
+  padding: 10px;
+}
 
 .footer {
-  position: absolute;
+  position: flex;
   bottom: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.2);
@@ -61,31 +65,38 @@ body {
   text-decoration: underline;
 }
 
-.container4 {
-  position: relative;
-  background: #04001c;
-  width: 100%;
-  margin: 0 auto;
-}
-
 #sketch-container {
   display: flex;
-  margin: auto;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 0;
 }
 
-@media (max-width: 768px) {
-  .container4 {
-    width: 90%; /* Slightly smaller on mobile */
-  }
+#sketch-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 0;
 }
 
-@media (max-width: 480px) {
-  .container4 {
-    width: 95%;
-  }
+#sketch-container2 canvas {
+  display: block; /* Removes default canvas spacing */
+  margin: 0;
+  padding: 0;
 }
+
+.gif1 {
+  background: #030548;
+}
+
 .subtitle {
   display: block;
   margin: auto;

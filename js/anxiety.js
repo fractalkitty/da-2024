@@ -10,28 +10,29 @@ function preload() {
 }
 
 function setup() {
-  w = min(windowWidth, windowHeight);
-  createCanvas(w, w);
-  planets = [];
+  w = windowWidth * 0.9;
+  let canvas = createCanvas(w, w);
+  canvas.parent("sketch-container2"); // Make sure this matches your HTML ID
   noStroke();
   m = round(max(windowWidth, windowHeight));
   imageMode(CENTER);
   synth.setLoop(true);
 
-  // Add event listener for when the sketch's parent element is removed
-  const canvas = document.querySelector("canvas");
-  if (canvas && canvas.parentElement) {
+  // Use the existing canvas reference instead of creating a new one
+  if (canvas.elt && canvas.elt.parentElement) {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         mutation.removedNodes.forEach((node) => {
-          if (node === canvas || node.contains(canvas)) {
+          if (node === canvas.elt || node.contains(canvas.elt)) {
             cleanup();
           }
         });
       });
     });
-
-    observer.observe(canvas.parentElement, { childList: true, subtree: true });
+    observer.observe(canvas.elt.parentElement, {
+      childList: true,
+      subtree: true,
+    });
   }
 }
 
@@ -169,26 +170,67 @@ function mouseInCanvas(rect) {
   );
 }
 
+// function touchStarted() {
+//   if (mouseY < 0 || mouseY > height || mouseX < 0 || mouseX > width) {
+//     return true; // Let the touch event pass through to other elements
+//   }
+//   frameCount = 0;
+//   if (synth.isLoaded()) {
+//     if (isPlaying) {
+//       synth.stop();
+//       noLoop(); // Stop animation when stopping audio
+//     } else {
+//       const allAudioElements = document.getElementsByTagName("audio");
+//       for (let audio of allAudioElements) {
+//         audio.pause();
+//       }
+//       synth.play();
+//       loop(); // Start animation when playing audio
+//     }
+//     isPlaying = !isPlaying;
+//   }
+//   // Prevent default touch behavior
+//   return false;
+// }
+
 function touchStarted() {
-  if (mouseY < 0 || mouseY > height || mouseX < 0 || mouseX > width) {
-    return true; // Let the touch event pass through to other elements
+  // Get the canvas position relative to the viewport
+  let canvas = document.querySelector("canvas");
+  let rect = canvas.getBoundingClientRect();
+
+  // Check if touch is inside canvas bounds
+  if (
+    mouseX < 0 ||
+    mouseX > width ||
+    mouseY < 0 ||
+    mouseY > height ||
+    !mouseInCanvas(rect)
+  ) {
+    return true; // Let the touch pass through if outside canvas
   }
-  frameCount = 0;
+
+  // Resume audio context if it's suspended
+  if (getAudioContext().state !== "running") {
+    getAudioContext().resume();
+  }
+
   if (synth.isLoaded()) {
     if (isPlaying) {
       synth.stop();
-      noLoop(); // Stop animation when stopping audio
+      noLoop();
     } else {
       const allAudioElements = document.getElementsByTagName("audio");
       for (let audio of allAudioElements) {
         audio.pause();
       }
-      synth.play();
-      loop(); // Start animation when playing audio
+      // Add a small delay to ensure audio context is ready
+      setTimeout(() => {
+        synth.play();
+        loop();
+      }, 100);
     }
     isPlaying = !isPlaying;
   }
-  // Prevent default touch behavior
   return false;
 }
 
