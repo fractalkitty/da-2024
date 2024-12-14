@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A december adventure site for 2024" />
+    <link rel="icon" type="image/png" href="/assets/homeicon.png" />
+    <title>Day 14 - #wcccChallenge - Chromatic Communication</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
+    <link rel="stylesheet" href="style6.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="/">
+        <img class="homeicon" src="/assets/homeicon.png" alt="birdhouse" />
+      </a>
+      <div class="subtitle">
+        <h1>Day 14 - Chromatic Communication</h1>
+        <p>(paint with words)</p>
+      </div>
+      <a class="logicon" href="/log.html">
+        <img src="/assets/logicon.png" alt="tree log" />
+      </a>
+    </nav>
+    <div id="controls">
+      <h2></h2>
+      <p>Enter your poem below (one line per row):</p>
+      <textarea id="poemInput">
+abcdefghijklmnopqrstuvwxyz
+color is
+communication
+of
+matter
+texture
+light
+existence
+abcdefghijklmnopqrstuvwxyz</textarea
+      >
+      <br />
+      <button onclick="updatePoem()">Update Visualization</button>
+      <button onclick="downloadImage()">Download Image</button>
+      <p>Press "t" to reveal the text.</p>
+    </div>
+    <div id="canvas-container"></div>
+    <footer class="footer">
+      <p>
+        <a
+          rel="license"
+          href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+        >
+          <img
+            alt="Creative Commons License"
+            style="border-width: 0"
+            src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
+          />
+        </a>
+      </p>
+    </footer>
+    <script src="js/chromatic.js"></script>
+  </body>
+</html>
